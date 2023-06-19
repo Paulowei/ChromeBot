@@ -1,4 +1,4 @@
-# Snake.java
+# ChromeBot.java
 -An update to the ChromeBot .
 -Now A maven Project ; 
 -W to start S to pause D to quit ;
