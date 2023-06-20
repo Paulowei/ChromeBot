@@ -16,7 +16,7 @@ import java.util.function.Function ;
 import com.moderneinstein.arcade.chromebot.App ;
 
 public class ChromeBot extends Thread implements Runnable{
-    Node node ;
+    public Node node ;
     public int thresh;
     public int thresh_;
     public Robot robot;
@@ -57,8 +57,8 @@ public class ChromeBot extends Thread implements Runnable{
 		}
     public boolean jump() throws ChromeBotException{
         int sum=0;
-       // robot.keyPress(ChromeBot.KEYDOWN);
-       // robot.mouseWheel(-6);
+        robot.keyPress(ChromeBot.KEYDOWN);
+        robot.mouseWheel(-6);
         BufferedImage image=robot.createScreenCapture(node.rect);
         int width2 = image.getWidth();
         int height2 = image.getHeight();
@@ -72,13 +72,12 @@ public class ChromeBot extends Thread implements Runnable{
             }
         //System.out.println(this.toString() + sum);
         if(sum<=thresh&&isDino==true ){
-            /*
         robot.delay(100);
         robot.keyRelease(ChromeBot.KEYDOWN);
         robot.keyPress(ChromeBot.KEYSPACE);
         robot.delay(200);
         robot.keyRelease(ChromeBot.KEYSPACE);
-        robot.keyPress(ChromeBot.KEYDOWN);  */
+        robot.keyPress(ChromeBot.KEYDOWN);  
       //  App.outer.println(22) ;
         }//"Sum of the pixel color components is exceedingly beyond the threshold"
         if( sum>=2000000){throw new ChromeBotException("Sum of the pixel color components is exceedingly beyond the threshold");
@@ -96,8 +95,8 @@ public class ChromeBot extends Thread implements Runnable{
     }
     public int  scale() throws ChromeBotException{
         int sum= 0;
-        //robot.keyPress(ChromeBot.KEYDOWN);
-       // robot.mouseWheel(-6);
+        robot.keyPress(ChromeBot.KEYDOWN);
+       robot.mouseWheel(-6);
         BufferedImage image=robot.createScreenCapture(node.rect);
         int width=image.getWidth();
          int height=image.getHeight();
@@ -111,14 +110,12 @@ public class ChromeBot extends Thread implements Runnable{
         }
         //System.out.println(this.toString() + sum);
         if(sum>=thresh_){
-            /* 
             robot.delay(80);
             robot.keyRelease(ChromeBot.KEYDOWN);
             robot.keyPress(ChromeBot.KEYSPACE);
             robot.delay(200);
             robot.keyRelease(ChromeBot.KEYSPACE);
             robot.keyPress(ChromeBot.KEYDOWN);
-            */
            // App.outer.println(33) ;
         }
         if( sum>=2000000) {throw new ChromeBotException("Sum of the pixel color components is exceedingly beyond the threshold");
@@ -139,21 +136,19 @@ public class ChromeBot extends Thread implements Runnable{
                 }
         }
          if((state==true&&sum2<=thresh)||(state==false&&sum2>=thresh_)){
-            /* 
             robot.keyRelease(KeyEvent.VK_DOWN);
             robot.mouseMove(node.position.xPos,node.position.yPos );
             robot.mousePress(ChromeBot.MOUSECLICKLEFT);
             robot.delay(200);
             robot.mouseRelease(ChromeBot.MOUSECLICKLEFT);
             robot.mouseMove(node.position.xPos+80,node.position.yPos+80);
-            */ 
+            
         }
         if(sum2>=2000000){throw new ChromeBotException("Sum of the pixel color components is exceedingly beyond the threshold");
                 }
         return sum2;
     }//Button postion initialisation method();
     public void init(){
-        /*
         robot.mouseMove(node.position.xPos+node.width/2,node.position.yPos+node.height/2);
         robot.mousePress(ChromeBot.MOUSECLICKLEFT);
 	robot.delay(50)  ;
@@ -165,7 +160,7 @@ public class ChromeBot extends Thread implements Runnable{
 	robot.mousePress(ChromeBot.MOUSECLICKLEFT);
 	robot.delay(50) ;
         robot.mouseRelease(ChromeBot.MOUSECLICKLEFT);
-        */
+        
     }
     //public test method(non-static);
     public int test() throws AWTException{
